@@ -1,16 +1,18 @@
 let player = 1;
 let sign = "X"
 let turn = document.getElementById('player');
+let play_again = document.getElementById('play-again')
 function printx(num){
     let box_number = document.getElementById('r' + num);
     
     if(box_number.innerHTML == ""){
         box_number.innerHTML = sign;
+        checkPlayer();
         winner();
         checkSign();
         
     
-    checkPlayer();
+   
    
     }
    
@@ -47,6 +49,13 @@ function checkMove (a,b,c,m){
 function winner(){
     if (checkMove(1,2,3,sign) || checkMove(4,5,6,sign) || checkMove(7,8,9,sign) 
     || checkMove(1,4,7,sign) || checkMove(4,5,6,sign) || checkMove(7,8,9,sign)){
-        alert(`${sign}` + " wins")
+        turn.innerHTML = `<p align = "center">${sign} wins </p>`;
+        for (i=1;i<=9;i++){
+            document.getElementById('r' + i).innerHTML = "";
+        }
+        play_again.style.display = " block";
     }
+}
+function playAgain(){
+
 }
