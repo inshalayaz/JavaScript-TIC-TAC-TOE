@@ -48,11 +48,25 @@ function checkMove (a,b,c,m){
 
 function winner(){
     if (checkMove(1,2,3,sign) || checkMove(4,5,6,sign) || checkMove(7,8,9,sign) 
-    || checkMove(1,4,7,sign) || checkMove(4,5,6,sign) || checkMove(7,8,9,sign)){
+    || checkMove(1,4,7,sign) || checkMove(2,5,8,sign) || checkMove(3,6,9,sign)
+    || checkMove(1,5,9,sign) || checkMove(3,5,7,sign)){
         turn.innerHTML = `<p align = "center">${sign} wins </p>`;
         for (i=1;i<=9;i++){
             document.getElementById('r' + i).innerHTML = "";
         }
        // play_again.style.display = " block";
+    }else{
+        if(getBox(1)!="" && getBox(2)!="" && getBox(3)!=""
+        && getBox(4)!="" && getBox(5)!="" && getBox(6)!=""
+        && getBox(7)!="" && getBox(8)!="" && getBox(9)!=""){
+            turn.innerHTML = `<p align = "center">Its a tie </p>`;
+            for (i=1;i<=9;i++){
+                document.getElementById('r' + i).innerHTML = "";
+            }
+            throw "its a tie";
+            
+        }
+        
     }
+     
 }
