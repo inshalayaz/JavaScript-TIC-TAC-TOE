@@ -53,9 +53,6 @@ function winner(){
         for (i=1;i<=9;i++){
             document.getElementById('r' + i).innerHTML = "";
         }
-        play_again.style.display = " block";
+       // play_again.style.display = " block";
     }
-}
-function playAgain(){
-
 }
